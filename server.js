@@ -47,7 +47,7 @@ function serviceCharge(query)
   console.log("Handling a request");
   console.log(query);
   
-  //Error checking checkbal
+  //Error checking "checkBal"
   if(isNaN(query['checkBal']))
   {
     throw Error("Invalid value for checkBal");
@@ -67,7 +67,7 @@ function serviceCharge(query)
     if(query['savingsBal'] == undefined || query['savingsBal']<0)
     throw Error("Invalid value for savingsBal");
   }
-    
+  //Error checking checks
   if(isNaN(query['checks']))
   {
     throw Error("Invalid value for checks");
@@ -80,11 +80,12 @@ function serviceCharge(query)
     
   var charge = 0;
   
+  //if statement to check arguement
   if (query['checkBal'] <= 1000 && query['savingsBal'] <= 1500)
   {
     charge = .15;
   }
-  
+  //calculate total charge
   var total = charge * parseInt(query['checks']);
     
   var result = {'charge' : total}; 
